@@ -36,12 +36,12 @@ class Post(CreatedModel):
         blank=True
     )
 
+    class Meta:
+        ordering = ['-pub_date']
+
     def __str__(self):
         # выводим текст поста
         return self.text[:15]
-
-    class Meta:
-        ordering = ['-pub_date']
 
 
 class Comment(models.Model):
@@ -69,3 +69,10 @@ class Follow(models.Model):
                                related_name='following',
                                on_delete=models.CASCADE,
                                )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'author'], name='unique_following'
+            )
+        ]
