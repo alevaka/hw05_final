@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load cache %}
+{% load thumbnail %}
+{% block title %}Подписки пользователя {{ username }}{% endblock %}
+{% block content %}
+{% include 'posts/includes/switcher.html' %}
+  {% cache 20 follow_page page_obj.number %}
+  <div class="container py-5">     
+  {% for post in page_obj %}
+      {% include 'posts/includes/post_list.html' %}
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+  {% endcache %}
+  {%include 'posts/includes/paginator.html' %}
+{% endblock %}
