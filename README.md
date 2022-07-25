@@ -1,3 +1,3 @@
-# hw05_final
-
-[![CI](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml)
+yatube - проект личных дневников с комментариями.
+Комментировать и писать посты могут только авторизованные пользователи.
+Используется кэширование, пагинация. Проект покрыт тестами.
